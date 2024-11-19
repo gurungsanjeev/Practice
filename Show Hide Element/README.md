@@ -1,8 +1,9 @@
-# React + Vite
+4. Show/Hide Element
+Objective: Show or hide a div with a message using a button.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Display a message like "Hello, World!" inside a div.
+When the user clicks a button, toggle between showing and hiding the div.
+Steps:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use useState to manage whether the message is visible or not.
+Toggle the visibility of the div on button click.

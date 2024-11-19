@@ -6,7 +6,7 @@ import './App.css'
 function App() {
 const [visible, setVisible] = useState(true)
 const handleToggle =()=>{
-  setVisible(visible===""?"hello i am visible":"")
+  setVisible(visible==="true"?"hello i am visible":"")
 }
   return (
     <>

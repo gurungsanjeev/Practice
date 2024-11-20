@@ -4,16 +4,25 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-const [mode, setMode] = useState('white')
+const [mode, setMode] = useState("white")
 
 const handleChangeMode =()=>{
-  setMode(mode=="white"?"dark":"white")
-  document.body.style.backgroundColor =mode==="white"?"dark":"white"
+  if(mode == "white"){
+   setMode("Dark");
+  document.body.style.backgroundColor="black"
+  document.body.style.color="white"
+  }
+  else{
+    setMode("white");
+    document.body.style.backgroundColor="white"
+  document.body.style.color="black"
+
+  }
 }
   return (
     <>
     <div className='theme' style={{ backgroundColor : mode?"dark":"white"}}>
-      <button onClick={handleChangeMode}>Enable Dark Mode</button>
+      <button onClick={handleChangeMode}>{(mode=="white"?"Enable Dark Mode":"Enable Light Mode")}</button>
       <p>Hello is the example of the dark mode</p>
       </div>
     </>

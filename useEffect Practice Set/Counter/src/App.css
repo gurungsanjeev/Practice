@@ -11,6 +11,29 @@
   will-change: filter;
   transition: filter 300ms;
 }
+.container{
+  display: flex;
+  gap: 10px;
+  
+}
+body{
+  background-color: #888;
+}
+
+.increment{
+  background-color: rgb(34, 151, 34);
+  color: white;
+
+  &:hover{
+    background-color: rgb(35, 107, 35);
+    transition: 0.4s;
+  }
+}
+
+.reset-btn{
+  background-color: orange;
+  border-radius: 8px;
+}
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }

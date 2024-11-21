@@ -41,7 +41,8 @@ function App() {
 
         <div className="container" style={{ backgroundImage: backgroundImage() }}>
           <h1>Temperature Converter</h1>
-          <fieldset>
+          <hr />
+          <fieldset >
             <div className="inner-container">
               <div className="celcius">
                 <h4>Celsius</h4>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   
  const [value, setValue] = useState(0)
- const [reset, setReset] = useState(value)
+ 
  
 
  const handleIncrement = ()=>{
@@ -17,7 +17,11 @@ function App() {
  }
  const handleReset=()=>{
   setValue(0);
+  alert("Your data was reset")
  }
+
+
+ 
 
   return (
     <>

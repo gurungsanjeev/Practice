@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [value, setValue] = useState(0)
+  
   const [input, setInput] = useState("")
+  const [result, setResult] = useState("")
 
   useEffect(() => {
     if (input) {
       try {
-        setResult(eval(input)); // Use eval to evaluate the input as JavaScript expression
+        setResult(input); // Use eval to evaluate the input as JavaScript expression
       } catch (error) {
         setResult('Error');
       }
@@ -24,50 +25,66 @@ function App() {
     setInput((prevInput) => prevInput + value);
   };
 
+  const handleClear=()=>{
+    setInput("")
+    setResult("")
+  }
+
+  const handleEqual = () => {
+    try {
+      setResult(eval(input)); // Evaluate the input as a JavaScript expression
+    } catch (error) {
+      setResult('Error'); // Show error if the expression is invalid
+    }
+  };
+
   return (
     <>
       <div className="container">
         <h1>Calculator</h1>
         <div className="inner-container bg-gray-700">
           <div className="input-field my-2">
-            <input type="text" readOnly className='py-2 px-5' />
+            <input type="text" 
+            readOnly
+            value={input}
+             className='py-2 px-5' />
           </div>
           <div className="button">
             
             <div className="1strow">
 
-              <button className='bg-orange-400 '>AC</button>
+              <button onClick={handleClear} className='bg-orange-400 '>AC</button>
               <button className='bg-orange-400'>Del</button>
-              <button className='bg-orange-400'>%</button>
-              <button className='bg-orange-400'>*</button>
+              <button onClick={()=>handleClick("%")} className='bg-orange-400'>%</button>
+              <button onClick={()=>handleClick("*")} className='bg-orange-400'>*</button>
             </div>
             <div className="2nd-row">
 
-              <button onClick={handleClick("7")}>7</button>
-              <button>8</button>
-              <button>9</button>
-              <button className='bg-orange-400 '>+</button>
+              <button onClick={()=>handleClick("7")}>7</button>
+              <button onClick={()=>handleClick("8")}>8</button>
+              <button onClick={()=> handleClick("9")}>9</button>
+              <button onClick={()=>handleClick("+")} className='bg-orange-400 '>+</button>
             </div>
             <div className="3rd">
 
-              <button>6</button>
-              <button>5</button>
-              <button>4</button>
-              <button className='bg-orange-400 '>-</button>
+              <button onClick={()=>handleClick("6")}>6</button>
+              <button onClick={()=>handleClick("5")}>5</button>
+              <button onClick={()=>handleClick("4")}>4</button>
+              <button onClick={()=>handleClick("-")} className='bg-orange-400 '>-</button>
             </div>
             <div className="4th">
 
-              <button>3</button>
-              <button>2</button>
-              <button>1</button>
-              <button className='bg-orange-400 '>/</button>
+              <button onClick={()=>handleClick("3")}>3</button>
+              <button onClick={()=>handleClick("2")}>2</button>
+              <button onClick={()=>handleClick("1")}>1</button>
+              <button onClick={()=>handleClick("/")} className='bg-orange-400 '>/</button>
             </div>
             <div className="5th">
 
-              <button>0</button>
-              <button>00</button>
-              <button>.</button>
-              <button className='bg-orange-400 '>=</button>
+              <button onClick={()=>handleClick("0")}>0</button>
+              <button onClick={()=>handleClick("00")}>00</button>
+              <button onClick={()=>handleClick(".")}>.</button>
+              <button onClick={handleEqual} className='bg-orange-400 '>=</button>
             </div>
 
           </div>
